@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SonderMind D2C Wellness Strategy</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+    (function() {
+        if (sessionStorage.getItem('d2c-auth') === 'true') return;
+        var p = prompt('Password:');
+        if (p !== '2026app') {
+            document.documentElement.innerHTML = '<body style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;color:#666"><p>Access denied.</p></body>';
+            throw new Error('auth');
+        }
+        sessionStorage.setItem('d2c-auth', 'true');
+    })();
+    </script>
     <style>
         :root {
             --lake: #004455;
