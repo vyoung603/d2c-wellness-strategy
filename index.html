@@ -995,6 +995,64 @@
 
         .track-step-dot.active { background: var(--bright-teal); }
 
+        /* Shift visual */
+        .shift-visual {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .shift-state {
+            flex: 1;
+            padding: 36px 40px;
+            border-radius: 16px;
+        }
+
+        .shift-state--today {
+            background: var(--white);
+            border: 2px solid rgba(192,81,63,0.2);
+            border-left: 5px solid var(--coral);
+            box-shadow: 0 2px 12px rgba(0,68,85,0.05);
+        }
+
+        .shift-state--tomorrow {
+            background: var(--white);
+            border: 2px solid rgba(70,178,184,0.25);
+            border-left: 5px solid var(--bright-teal);
+            box-shadow: 0 4px 20px rgba(70,178,184,0.1);
+        }
+
+        .shift-state h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .shift-state--today h4 { color: var(--coral); }
+        .shift-state--tomorrow h4 { color: var(--bright-teal); }
+
+        .shift-state p {
+            font-size: 1.2rem;
+            line-height: 1.65;
+            margin-bottom: 0;
+            color: var(--text-dark);
+        }
+
+        .shift-arrow {
+            flex-shrink: 0;
+            animation: slideRight 1.5s ease-in-out infinite;
+        }
+
+        @keyframes slideRight {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(8px); }
+        }
+
         /* Scroll animations */
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(24px); }
@@ -1088,14 +1146,17 @@
         <div class="slide-content">
             <h2>The Shift</h2>
 
-            <div class="card-grid" style="grid-template-columns: 1fr 1fr;">
-                <div class="card" style="border-left: 4px solid var(--coral);">
-                    <h4 style="color: var(--coral);">Today: Therapy App with Wellness Features</h4>
-                    <p>Therapy is the core. Wellness content exists alongside it. Non-therapy users get a partial experience. Marketing drives to sondermind.com for therapist match.</p>
+            <div class="shift-visual">
+                <div class="shift-state shift-state--today">
+                    <h4>Today</h4>
+                    <p>Therapy is the core. Wellness content exists alongside it. Non-therapy users get a partial experience.</p>
                 </div>
-                <div class="card" style="border-left: 4px solid var(--bright-teal);">
-                    <h4>Tomorrow: Wellness App with Therapy Module</h4>
-                    <p>Wellness is the core. Therapy exists as a module -- available when needed, never assumed. Like Tesla's app adding solar alongside your car. The app works perfectly without it.</p>
+                <div class="shift-arrow">
+                    <svg width="80" height="24" viewBox="0 0 80 24"><path d="M0 12h72M64 4l12 8-12 8" stroke="var(--bright-teal)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div class="shift-state shift-state--tomorrow">
+                    <h4>Tomorrow</h4>
+                    <p>Wellness is the core. Therapy exists as a module -- available when needed, not assumed.</p>
                 </div>
             </div>
 
