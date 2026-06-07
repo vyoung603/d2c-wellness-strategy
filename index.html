@@ -437,9 +437,6 @@
             text-align: center;
             background: linear-gradient(160deg, #006677 0%, var(--lake) 35%, #001520 100%);
             color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .title-slide::before {
@@ -451,10 +448,17 @@
             pointer-events: none;
         }
 
+        .title-slide .slide-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
         .title-slide h1 {
             font-size: 6rem;
             font-weight: 700;
-            margin-bottom: 40px;
+            margin-bottom: 36px;
             line-height: 1.05;
             letter-spacing: -0.03em;
             position: relative;
@@ -464,15 +468,16 @@
             font-size: 1.8rem;
             font-weight: 300;
             max-width: 860px;
-            margin: 0 auto 72px;
-            color: rgba(227,237,236,0.9);
+            margin: 0 auto 48px;
+            color: var(--sky);
             line-height: 1.65;
             position: relative;
         }
 
         .title-slide .meta {
-            font-size: 1rem;
-            opacity: 0.5;
+            font-size: 1.1rem;
+            color: var(--bright-teal);
+            opacity: 0.7;
             letter-spacing: 3px;
             text-transform: uppercase;
             font-weight: 400;
@@ -483,7 +488,7 @@
             width: 80px;
             height: 3px;
             background: var(--solace-gold);
-            margin: 0 auto 44px;
+            margin: 0 auto 40px;
             border-radius: 2px;
             position: relative;
         }
