@@ -322,103 +322,60 @@
             font-weight: 600;
         }
 
-        /* TAM Visual -- Concentric Rings */
-        .tam-rings {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
+        /* TAM Visual -- Nested Circles */
+        .tam-circles {
+            display: flex;
+            justify-content: center;
             margin: 48px auto 0;
-            aspect-ratio: 1;
         }
 
-        .tam-ring {
-            position: absolute;
+        .tam-circle {
             border-radius: 50%;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            position: relative;
         }
 
-        .tam-ring--outer {
-            inset: 0;
-            border: 2.5px solid var(--bright-teal);
-            background: rgba(70,178,184,0.04);
-        }
-
-        .tam-ring--mid {
-            inset: 18%;
-            border: 2px dashed rgba(70,178,184,0.3);
-        }
-
-        .tam-ring--inner {
-            inset: 36%;
+        .tam-circle--outer {
+            width: 480px;
+            height: 480px;
             background: var(--lake);
-            border: none;
-            flex-direction: column;
+            padding-top: 48px;
         }
 
-        .tam-ring--inner .tam-num {
+        .tam-circle--inner {
+            width: 220px;
+            height: 220px;
+            background: var(--bright-teal);
+            margin-top: auto;
+            margin-bottom: 60px;
+        }
+
+        .tam-circle-label {
             font-family: 'Playfair Display', serif;
-            font-size: 2.4rem;
+            font-size: 2.8rem;
             font-weight: 700;
             color: var(--white);
             line-height: 1;
         }
 
-        .tam-ring--inner .tam-label {
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.6);
-            margin-top: 6px;
+        .tam-circle--inner .tam-circle-label {
+            font-size: 2rem;
         }
 
-        .tam-annotation {
-            position: absolute;
+        .tam-circle-sublabel {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.7);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 8px;
+        }
+
+        .tam-circle--inner .tam-circle-sublabel {
             font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .tam-annotation--outer {
-            top: 6%;
-            left: 50%;
-            transform: translateX(-50%);
-            color: var(--bright-teal);
-            background: rgba(70,178,184,0.1);
-            padding: 5px 14px;
-            border-radius: 16px;
-        }
-
-        .tam-annotation--outer-num {
-            bottom: 6%;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--bright-teal);
-            text-transform: none;
-            letter-spacing: 0;
-        }
-
-        .tam-badge {
-            position: absolute;
-            right: -12px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--solace-gold);
-            color: var(--lake);
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            padding: 12px 22px;
-            border-radius: 28px;
-            box-shadow: 0 4px 16px rgba(241,215,125,0.35);
-            z-index: 3;
-            white-space: nowrap;
         }
 
         /* Journey Flow */
@@ -1104,24 +1061,23 @@
         <div class="slide-content">
             <h2>Why This, Why Now</h2>
             <ul>
+                <li>There is real white space here. No one is doing AI-driven personalized wellness combined with therapy at scale in D2C. None of our direct competitors have moved into the wellness space effectively yet. The opportunity is open.</li>
                 <li>SonderMind serves ~15M therapy-seekers/year. The digital wellness market (Calm, Headspace, Flo, Liven) has proven 100M+ downloads exist. That's a 6-7x expansion of who we can serve.</li>
                 <li>We're already paying to reach these people. Tens of thousands bounce off sondermind.com monthly -- not ready for therapy, no insurance match, not sure. Today they leave. The app gives them a home.</li>
-                <li>CMS ACCESS launches July 5 and requires a non-therapy digital experience. We're building it regardless. D2C is the same experience with a different entry point.</li>
+                <li>CMS ACCESS launches July 5 and requires a non-therapy digital experience. We're building it regardless. D2C will build off of the early ACCESS work -- similar foundation (digital intervention only), but the D2C experience itself will be distinct.</li>
                 <li>Three audiences, one build: CMS ACCESS (live July 5), D2C wellness seekers, and future therapy-to-be clients. The capabilities overlap -- sequencing determines who we validate with first, not separate feature tracks.</li>
-                <li>Headspace is the closest -- first to combine therapy with a wellness app. But they lack brain health assessments driving personalization (Ebb is empathetic chat, not clinical intelligence), and their therapy isn't at scale. The B2B players (Spring, Lyra) don't touch consumers. Nobody is doing brain health assessment → personalized pathways → AI coaching → therapy at scale in D2C. We have the clinical engine and the provider network already.</li>
-                <li>Some wellness users become therapy referrals -- a new lead gen channel. But the model works independently of therapy conversion.</li>
+                <li>We expect that wellness users will become therapy referrals -- making this a new lead gen and acquisition channel for SonderMind. We also expect that the model, if done well, can work independently of therapy conversion.</li>
             </ul>
 
-            <div class="tam-rings">
-                <div class="tam-ring tam-ring--outer"></div>
-                <div class="tam-ring tam-ring--mid"></div>
-                <div class="tam-ring tam-ring--inner">
-                    <span class="tam-num">15M</span>
-                    <span class="tam-label">Therapy Seekers</span>
+            <div class="tam-circles">
+                <div class="tam-circle tam-circle--outer">
+                    <span class="tam-circle-label">100M+</span>
+                    <span class="tam-circle-sublabel">Wellness Seekers</span>
+                    <div class="tam-circle tam-circle--inner">
+                        <span class="tam-circle-label">15M</span>
+                        <span class="tam-circle-sublabel">Therapy Seekers</span>
+                    </div>
                 </div>
-                <span class="tam-annotation tam-annotation--outer">D2C Wellness Market</span>
-                <span class="tam-annotation tam-annotation--outer-num">100M+</span>
-                <span class="tam-badge">6-7x</span>
             </div>
         </div>
     </section>
